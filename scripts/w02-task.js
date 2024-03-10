@@ -2,7 +2,6 @@
 
 /* Step 1 - Setup type tasks - no code required */
 const fullName = "Yulisa Alexandra Tepo Cubas";
-console.log("fullName"); //Esto no cambia nada
 
 /* Step 2 - Variables */
 const currentYear = new Date();
@@ -13,7 +12,6 @@ nameElement = document.getElementById("name");
 foodElement = document.getElementById("food");
 yearElement = document.querySelector("#year");
 imageElement = document.querySelector("#photo");
-
 
 
 /* Step 4 - Adding Content */
