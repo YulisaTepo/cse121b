@@ -19,7 +19,7 @@ imageElement = document.querySelector("#photo");
 /* Step 4 - Adding Content */
 nameElement.innerHTML = `<strong>${fullName}<strong>`;
 yearElement.textContent = currentYear.getFullYear();
-imageElement.setAttribute("images/photo.jpeg", profilePicture);
+imageElement.setAttribute("src", profilePicture);
 imageElement.setAttribute("alt", 'Profile image of [fullName]')
 
 
