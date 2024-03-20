@@ -47,7 +47,7 @@ document.querySelector("#quotient".addEventListener("click", divideNumbers))
 /* Decision Structure */
 let subTotalAmount = Number(document.querySelector("#subTotal").value)
 let discount = () => {
-    if (document.getElementById("member").checked) {
+    if (document.querySelector("#member").checked) {
         subTotalAmount = subTotalAmount - (subTotalAmount * 0.2)
         return subTotalAmount;
     }
@@ -67,7 +67,7 @@ document.querySelector("#total".addEventListener("click", GetTotalDue))
 
 /* Output Source Array */
 let numbersArray = [1,2,3,4,5,6,7,8,9,10,11,12,13]
-let arrayElement = document.getElementById("array")
+let arrayElement = document.querySelector("#array")
 arrayElement.textContent = numbersArray.join(", ");
 
 /* Output Odds Only Array */
