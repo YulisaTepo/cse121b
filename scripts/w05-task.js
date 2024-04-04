@@ -2,7 +2,7 @@
 
 /* Declare and initialize global variables */
 const templesElement = document.querySelector("#temples");
-const templeList = [];
+let templeList = [];
 
 /* async displayTemples Function */
 const displayTemples = (temples) => {
@@ -11,8 +11,8 @@ const displayTemples = (temples) => {
         const h3Element = document.createElement("h3");
         h3Element.textContent = temple.templeName;
         const imageElement = document.createElement("img");
-        imageElement.src = temple.imageUrl;
-        imageElement.alt = temple.location;
+        imageElement.setAttribute("src", temple.imageUrl);
+        imageElement.setAttribute("alt", `${temple.location}`);
         articleElement.appendChild(h3Element);
         articleElement.appendChild(imageElement);
         templesElement.appendChild(articleElement);
@@ -23,48 +23,32 @@ const displayTemples = (temples) => {
 const getTemples = async () => {
     const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json")
     if (response.ok) {
-        const fetchConverted = await response.json()
-        templeList.push(fetchConverted);
-        displayTemples(templeList)
+        let data = await response.json()
+        templeList = data;
+        displayTemples(templeList);
     }
-
-    //ANOTHER WAY
-    /* .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error("Error fetching data:", error))
-    displayTemples(templeList); */
 }
 
 /* reset Function */
-/* const reset = function (templesElement) {
-    const articles = templesElement.querySelectorAll('article');
-    articles.forEach(article => {
-        article.remove();
-    }); */
-// ANOTHER WAY TO RESET
 const reset = () => {
     templesElement.innerHTML = " ";
-}; 
-// ESTO DEBERÍA FUNCIONAR
+};
 
 /* filterTemples Function */
-function filterTemples(templeList) {
+function filterTemples(temples) {
     reset();
-    const filter = document.querySelector("#filtered");
+    const filter = document.querySelector("#filtered").value;
     switch (filter) {
-        case "utah": displayTemples(templeList.filter(temple => temple.location.includes("Utah")))
+        case "utah": displayTemples(temples.filter(temple => temple.location.includes("Utah")))
             break;
-        case "notUtah": displayTemples(templeList.filter(temple => !temple.location.includes("Utah")))
+        case "notutah": displayTemples(temples.filter(temple => !temple.location.includes("Utah")))
             break;
-        case "older": displayTemples(templeList.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1)))
+        case "older": displayTemples(temples.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1))) 
             break;
-        case "all": displayTemples(templeList)
+        case "all": displayTemples(temples)
             break;
     }
 }
-
-
-
 /* Event Listener */
 document.querySelector("#filtered").addEventListener("change", () => { filterTemples(templeList) });
 
