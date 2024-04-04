@@ -1,5 +1,4 @@
 /* W05: Programming Tasks */
-
 /* Declare and initialize global variables */
 const templesElement = document.querySelector("#temples");
 let templeList = [];
