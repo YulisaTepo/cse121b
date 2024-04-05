@@ -12,7 +12,6 @@ myProfile.placeLived.push({ place: "Cajamarca", length: "4 years" });
 myProfile.placeLived.push({ place: "Guadalupe", length: "15 years" })
 
 /* Populate Profile Object with placesLive objects */
-
 /* DOM Manipulation - Output */
 
 /* Name */
