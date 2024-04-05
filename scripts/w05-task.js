@@ -1,5 +1,4 @@
 /* W05: Programming Tasks */
-
 /* Declare and initialize global variables */
 const templesElement = document.querySelector("#temples");
 let templeList = [];
@@ -35,6 +34,7 @@ const reset = () => {
 };
 
 /* filterTemples Function */
+
 function filterTemples(temples) {
     reset();
     const filter = document.querySelector("#filtered").value;
