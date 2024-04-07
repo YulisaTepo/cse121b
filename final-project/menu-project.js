@@ -9,11 +9,11 @@ const displayMenu = (menus) => {
         image.setAttribute("src", menu.image);
         image.setAttribute("alt", `${menu.name}`);
         let firstH4 = document.createElement("h4");
-        firstH4 = menu.name;
+        firstH4.innerHTML = menu.name;
         let secondH4 = document.createElement("h4")
-        secondH4 = menu.price;
+        secondH4.innerHTML = menu.price;
         let paragraph = document.createElement("p");
-        paragraph = menu.description;
+        paragraph.innerHTML = menu.description;
 
 
         article.appendChild(image);
@@ -44,7 +44,7 @@ function filterMenu(menus) {
     reset()
     const filter = document.querySelector("#filtered").value;
     switch (filter) {
-        case "cheaper": displayMenu(menus.filter(menu => menu.price.includes("300", "250", "200")))
+        case "cheaper": displayMenu(menus.filter(menu => parseInt(menu.price) <= 300))
             break;
         case "expensive": displayMenu(menus.filter(menu => parseInt(menu.price) > 300))
             break;
